@@ -27,7 +27,7 @@ If a remote named `origin` already exists, inspect it with `git remote -v` and u
 
 1. Open the repository on GitHub.
 2. Go to **Settings → Pages**.
-3. Under **Build and deployment**, select **GitHub Actions** as the source.
+3. Under **Build and deployment**, select **GitHub Actions** as the source. Do not select **Deploy from a branch**: that publishes the uncompiled source `index.html` and causes a blank React page.
 4. Open the **Actions** tab and watch the **Deploy to GitHub Pages** workflow.
 5. After it succeeds, use the deployment URL shown by the workflow or the Pages settings screen.
 
@@ -49,21 +49,9 @@ The push starts a new deployment automatically. GitHub Pages may take a few minu
 
 ## Repository name, username sites, and custom domains
 
-The production base path is derived from the repository name supplied by GitHub Actions. For local production builds, it falls back to the `name` in `package.json` (`accura-industrial-supplies`). A repository named `YOUR-GITHUB-USERNAME.github.io` is detected automatically and uses `/`.
+The production base path in `vite.config.js` is `/accura-industrial-supplies/`, matching this project repository.
 
-For a username site whose repository is exactly `YOUR-GITHUB-USERNAME.github.io`, or for a custom domain, build with a root base path:
-
-```bash
-VITE_BASE_PATH=/ npm run build
-```
-
-On Windows PowerShell:
-
-```powershell
-$env:VITE_BASE_PATH='/'; npm run build
-```
-
-To apply this in GitHub Actions, add `VITE_BASE_PATH: /` under the workflow's **Build website** step.
+For a username site whose repository is exactly `YOUR-GITHUB-USERNAME.github.io`, or for a custom domain, change `base` in `vite.config.js` to `/` before building.
 
 For a custom domain, add the domain in **Settings → Pages → Custom domain** and follow GitHub's DNS instructions. GitHub Pages hosting and HTTPS are free.
 
