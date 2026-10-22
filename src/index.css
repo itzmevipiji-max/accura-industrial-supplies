@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@tailwind base; @tailwind components; @tailwind utilities;
+@layer base { html{scroll-behavior:smooth} body{@apply bg-white text-slate-700 antialiased} h1,h2,h3{@apply text-ink} ::selection{@apply bg-orange-200 text-ink} }
+@layer components { .container-site{@apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10} .eyebrow{@apply mb-3 text-xs font-bold uppercase tracking-[.2em] text-safety} .btn{@apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-safety focus-visible:ring-offset-2} .btn-primary{@apply btn bg-safety text-white hover:bg-orange-600} .btn-light{@apply btn bg-white text-ink hover:bg-slate-100} .btn-outline{@apply btn border border-slate-300 bg-white text-ink hover:border-safety hover:text-safety} }
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
